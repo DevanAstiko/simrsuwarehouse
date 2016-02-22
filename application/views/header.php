@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title><?php echo $title ?> Finitive Admin Page</title>
+    <title><?php echo $title ?> SIM RSU || DATAWAREHOUSE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
@@ -103,7 +103,7 @@
                         <div class="navbar-header">
                             <a class="navbar-brand" href="<?php echo base_url(); ?>" id="url">
                                 <div class="icon fa fa-wrench"></div>
-                                <div class="title">Finitive Administration</div>
+                                <div class="title">RSU DW SYSTEMS</div>
                             </a>
                             <button type="button" class="navbar-expand-toggle pull-right visible-xs">
                                 <i class="fa fa-times icon"></i>
@@ -117,7 +117,7 @@
                             </li>
                             <li <?php if ($title == "Users") echo'class="active"'; ?>>
                                 <a href="<?php echo base_url(); ?>users">
-                                    <span class="icon fa fa-users"></span><span class="title">Admin Directory</span>
+                                    <span class="icon fa fa-user-md"></span><span class="title">Admin Directory</span>
                                 </a>
                             </li>
                             <li <?php if ($title == "Alumni") echo'class="active"'; ?>>
@@ -127,18 +127,17 @@
                             </li>
                             <li class="panel panel-default dropdown <?php if ($title == "Article") echo 'active'; ?>">
                                 <a data-toggle="collapse" href="#dropdown-element">
-                                    <span class="icon fa fa-diamond"></span><span class="title">Actions</span>
+                                    <span class="icon fa fa-stethoscope"></span><span class="title">Rawat Jalan</span>
                                 </a>
                                 <!-- Dropdown level 1 -->
                                 <div id="dropdown-element" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="<?php echo base_url(); ?>">Approval</a>
+                                            <li><a href="<?php echo base_url(); ?>">Directory Report</a>
                                             </li>
-                                            <li><a href="<?php echo base_url(); ?>">Rejected</a>
+                                            <li><a href="<?php echo base_url(); ?>">Create Report</a>
                                             </li>
-                                            <li><a href="<?php echo base_url(); ?>">Publish</a>
-                                            </li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -146,7 +145,27 @@
                             
                             <li>
                                 <a href="#">
-                                    <span class="icon fa fa-file-text-o"></span><span class="title">Blog</span>
+                                    <span class="icon fa fa-hospital-o"></span><span class="title">Rawat Inap</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon fa fa-glass"></span><span class="title">Pharmacy</span>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="#">
+                                    <span class="icon fa fa-asterisk"></span><span class="title">Laboratory</span>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="#">
+                                    <span class="icon fa fa-smile-o"></span><span class="title">Poli Gigi dan Mulut</span>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="#">
+                                    <span class="icon fa fa-gears"></span><span class="title">Inventaris RSUH</span>
                                 </a>
                             </li>
                             

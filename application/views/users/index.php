@@ -59,19 +59,13 @@
                                                     }
                                                     
                                                     elseif($row->previllage==2){
-                                                        echo 'Blog Admin</td>
+                                                        echo 'Admin Rawat Jalan</td>
                                                             <td><button class="btn btn-danger btn-xs pull-right" onClick="deleteUser(\''. $row->id . '\')">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button></td>
                                                          </tr>';
                                                     }
-                                                    elseif($row->previllage==3){
-                                                        echo 'Approval Action Admin</td>
-                                                            <td><button class="btn btn-danger btn-xs pull-right" onClick="deleteUser(\''. $row->id . '\')">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </button></td>
-                                                         </tr>';
-                                                    }
+                                                    
                                                             
                                                     }
                                                     
@@ -113,23 +107,18 @@
                                         <div>
                                         <label>Role*</label><br>
                                           <div class="radio3 radio-check radio-inline">
-                                            <input type="radio" id="role1" name="role" value="Writer" checked="">
+                                            <input type="radio" id="role1" name="role" value="1" checked="">
                                             <label for="role1">
                                               General Admin
                                             </label>
                                           </div>
                                           <div class="radio3 radio-check radio-inline">
-                                            <input type="radio" id="role2" name="role" value="Translator">
+                                            <input type="radio" id="role2" name="role" value="2">
                                             <label for="role2">
                                               Blog Admin
                                             </label>
                                           </div>
-                                          <div class="radio3 radio-check radio-danger radio-inline">
-                                            <input type="radio" id="role3" name="role" value="Administrator">
-                                            <label for="role3">
-                                              Approval Action Admin
-                                            </label>
-                                          </div>
+                                         
                                         </div>
                                     </div>
                                 </div>

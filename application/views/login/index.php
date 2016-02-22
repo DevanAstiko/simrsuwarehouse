@@ -42,7 +42,8 @@
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
-                        			<h3>Login to administration area</h3>
+                        			
+                                    <h3>SIMRSU DATAWAREHOUSE SYSTEM</h3>
                             		<p>Enter your username and password to log on:</p>
                         		</div>
                         		<div class="form-top-right">
@@ -62,7 +63,7 @@
                                     <div class="alert alert-danger" role="alert" style="display: none;" id="loginalert">
 
                                     </div>
-			                        <button type="submit" class="btn">Sign in!</button>
+			                        <button type="submit" class="btn">Log in</button>
 			                    </form>
 		                    </div>
                         </div>
