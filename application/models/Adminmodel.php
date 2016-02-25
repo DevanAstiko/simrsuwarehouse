@@ -13,8 +13,10 @@ class Adminmodel extends CI_Model {
 //fungsi untuk ambil tabel adminsbyid
 
     public function getAdminByID($id){
-        $this->db->where('id', $id);
-        return $this->db->get('admins');
+        $query=$this->db->where('id', $id);
+        $q = $this->db->get('admins');
+        $data = $q->result_array();
+        return $data;
     }
 
 //fungsi untuk ambil tabel admins by username

@@ -16,10 +16,28 @@ class Personalization extends CI_Controller {
 	}
 
 	public function index(){
-		$header['title'] = 'Home';
+		$header['title'] = 'Personalization';
 		$this->load->view('header', $header);
-		$this->load->view('personalization/index');
+		$data = $this->getDataDetail();
+		$content = array(
+            'table' => $data[0]
+        );
+		
+		 
+		 	echo $data[0]['username'];
+		 // $content  = array('detail' => $getdetail );
+		$this->load->view('personalization/index',$content);
 		$this->load->view('footer');
 	}
+
+
+	public function getDataDetail(){
+		$this->load->model('adminmodel');
+		$getid = $this->session->userdata('id');
+		echo $getid;
+		$getrow = $this->adminmodel->getAdminByID($getid);
+		return $getrow;
+	}
+
 
 }
