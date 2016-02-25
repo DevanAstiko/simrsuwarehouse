@@ -24,8 +24,7 @@ class Personalization extends CI_Controller {
         );
 		
 		 
-		 	echo $data[0]['username'];
-		 // $content  = array('detail' => $getdetail );
+		 
 		$this->load->view('personalization/index',$content);
 		$this->load->view('footer');
 	}
@@ -34,9 +33,12 @@ class Personalization extends CI_Controller {
 	public function getDataDetail(){
 		$this->load->model('adminmodel');
 		$getid = $this->session->userdata('id');
-		echo $getid;
+		
 		$getrow = $this->adminmodel->getAdminByID($getid);
 		return $getrow;
+	}
+	public function updateAdmin(){
+		
 	}
 
 

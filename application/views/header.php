@@ -120,7 +120,7 @@
                                     <span class="icon fa fa-user-md"></span><span class="title">Admin Directory</span>
                                 </a>
                             </li>
-                            <li <?php if ($title == "Personalization") echo'class="active"'; ?>>
+                            <li <?php if ($title == "Personalization")echo'class="active"'; ?>>
                                 <a href="<?php echo base_url(); ?>">
                                     <span class="icon fa fa-user"></span><span class="title">Personalization</span>
                                 </a>
