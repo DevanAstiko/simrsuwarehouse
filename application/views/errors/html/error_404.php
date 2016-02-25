@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Error Page | PPKK</title>
+    <title>ERR 404</title>
     <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/css/animate.min.css" rel="stylesheet">
@@ -36,9 +36,7 @@
                     <div class="col-sm-12">
                         <div class="text-center">
                             <div class="bg-404">
-                                <div class="error-image">
-                                    <img class="img-responsive" src="<?php echo base_url(); ?>public/images/404.png" alt="">
-                                </div>
+                                
                             </div>
                             <h2><?php echo $heading; ?></h2>
                             <p><?php echo $message; ?></p>
