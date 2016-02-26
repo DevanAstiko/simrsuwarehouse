@@ -20,18 +20,18 @@ class Users extends CI_Controller {
 //index dari controller ini adalah untuk mengambil tabel user admin yang ada di database dan data tabel 
 //admins tersebut dikirim ke view view/user/index untuk di tampilkan datanya di view
 
-	public function index()
-	{
+    public function index()
+    {
         $this->load->model('adminmodel');
         $user = $this->adminmodel->getAdminList();
         $header['title'] = 'Users';
         $content = array(
             'table' => $user
-        );
-		$this->load->view('header', $header);
+            );
+        $this->load->view('header', $header);
         $this->load->view('users/index', $content);
         $this->load->view('footer');
-	}
+    }
 
 //function untuk add admin baru dengan tingkatan admin
     public function add(){
@@ -127,7 +127,7 @@ class Users extends CI_Controller {
             $res = array(
                 'pass' => $pass,
                 'salt' => $salt
-            );
+                );
             return $res;
         }
     }
@@ -135,4 +135,22 @@ class Users extends CI_Controller {
     private function verify($plain, $salt, $chiper){
         return (crypt($plain, $salt) === $chiper);
     }
-}
+
+    public function updateAdmin (){
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('name' , 'name' , 'required|min_length(8)');
+        $this->form_validation->set_rules('username' , 'username' , 'required|min_length(8)');
+        $this->form_validation->set_rules('email', 'email', 'required|max_length[45]|is_unique[admins.email]');
+        $this->form_validation->set_message('is_unique', 'This e-mail has been registered');
+        if ($this->form_validation->run() == FALSE)
+        {
+            echo json_encode(array('st' => 0, 'msg' => array('username_alert' => form_error('username'), 'name_alert' => form_error('name'), 'email_alert' => form_error('confpassword'))));
+        }
+        else
+        {
+
+        }
+
+
+    }
