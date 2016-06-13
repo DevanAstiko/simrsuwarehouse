@@ -43,19 +43,19 @@ class Login extends CI_Controller {
                         $this->session->set_userdata('id', $row->id);
                         $this->session->set_userdata('username', $row->username);
 
-                        if($row->previllage==1){
+                        if($row->previllages_id ==1){
                              $this->session->set_userdata('role', 'General Admin');
                         }
-                        elseif($row->previllage==2){
+                        elseif($row->previllages_id ==2){
                             $this->session->set_userdata('role', 'Blog Admin');
                         }
-                        elseif($row->previllage==3){
+                        elseif($row->previllages_id ==3){
                             $this->session->set_userdata('role', 'Aproval Action Admin');
                         }
 
 
                        
-                        $this->session->set_userdata('coderole', $row->previllage);
+                        $this->session->set_userdata('coderole', $row->previllages_id);
                         $this->session->set_userdata('finadmin', 'yesiam');
 
                         

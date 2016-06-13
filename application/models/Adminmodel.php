@@ -26,15 +26,16 @@ class Adminmodel extends CI_Model {
         return $this->db->get('admins');
     }
 
-//fungsi untuk insert tabel admin untuk daftar admin baru
+//  fungsi untuk insert tabel admin untuk daftar admin baru
 
-    public function insertAdmin($admin, $pass, $salt, $date, $role){
+    public function insertAdmin($id,$admin, $pass, $salt, $date, $role){
         $data = array(
+            'id' => $id,
             'username' => $admin,
             'password' => $pass,
             'salt' => $salt,
             'created_at' => $date,
-            'previllage' => $role
+            'previllages_id' => $role
         );
         return $this->db->insert('admins', $data);
     }

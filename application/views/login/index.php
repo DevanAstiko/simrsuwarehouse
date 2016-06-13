@@ -9,7 +9,6 @@
         <title>Admin Page</title>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/font-awesome.min.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/loginscreen-style.css">
@@ -31,12 +30,12 @@
 
     </head>
 
-    <body style="background: url(public/img/login.jpg) no-repeat center center fixed;">
+    <body>
 
         <!-- Top content -->
-        <div class="top-content">
+        <div class="top-content" style="background:url(public/img/logins.jpg) no-repeat center;">
 
-            <div class="inner-bg">
+            <div class="inner-bg" >
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">

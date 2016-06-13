@@ -3,10 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Users extends CI_Controller {
 
-//funtion contruct untuk mengidentifikasi analisa sebelum masuk ke function index. 
-//di sini di filter sessionnya apakah sudah melakukan login atau belum. 
-//bila sudah pernah login dan belum logout atau belum d destroy cache nya maka di redirect di base url, 
-//yaitu finitive.pro/admin/Home
+
 
     public function __construct(){
         parent::__construct();
@@ -57,7 +54,8 @@ class Users extends CI_Controller {
                 $role = $this->input->post('role');
                 $hashed = $this->generateHash($plainpass);
                 $this->load->model('adminmodel');
-                $this->adminmodel->insertAdmin($user, $hashed['pass'], $hashed['salt'], $date, $role);
+                $id = 'DW'.date('YmdHis');
+                $this->adminmodel->insertAdmin($id,$user, $hashed['pass'], $hashed['salt'], $date, $role);
                 echo json_encode(array('st' => 1, 'msg' => 'done'));
             }
         } else {
@@ -154,3 +152,4 @@ class Users extends CI_Controller {
 
 
     }
+}

@@ -49,7 +49,7 @@
                                                             <td>'. $row->last_login .'</td>
                                                             <td>';
 
-                                                     $var = $row->previllage;
+                                                     $var = $row->previllages_id    ;
                                                     if($var == 1){
                                                         echo 'General Admin</td>
                                                             <td><button class="btn btn-danger btn-xs pull-right" onClick="deleteUser(\''. $row->id . '\')">
@@ -58,7 +58,7 @@
                                                          </tr>';
                                                     }
                                                     
-                                                    elseif($row->previllage==2){
+                                                    elseif($row->previllages_id ==2){
                                                         echo 'Admin Rawat Jalan</td>
                                                             <td><button class="btn btn-danger btn-xs pull-right" onClick="deleteUser(\''. $row->id . '\')">
                                                                     <i class="fa fa-trash"></i>
