@@ -125,6 +125,11 @@
                                     <span class="icon fa fa-user"></span><span class="title">Personalization</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>etlprocessing">
+                                    <span class="icon fa fa-gears"></span><span class="title">ETL Processing</span>
+                                </a>
+                            </li>
                             <li class="panel panel-default dropdown <?php if ($title == "Article") echo 'active'; ?>">
                                 <a data-toggle="collapse" href="#dropdown-element">
                                     <span class="icon fa fa-stethoscope"></span><span class="title">Rawat Jalan</span>
@@ -163,11 +168,7 @@
                                     <span class="icon fa fa-smile-o"></span><span class="title">Poli Gigi dan Mulut</span>
                                 </a>
                             </li>
-                             <li>
-                                <a href="#">
-                                    <span class="icon fa fa-gears"></span><span class="title">Inventaris RSUH</span>
-                                </a>
-                            </li>
+                             
                             
                         </ul>
                     </div>
