@@ -18,7 +18,7 @@ class Filing extends CI_Controller {
     public function index()
     {
        
-        // $this->load->model('pxrajal');
+        $this->load->model('pxrajal');
         // $get = $this->pxrajal->getpxrajal();
         // foreach ($get->result() as $key) {
         //     $id = $key->id;
@@ -130,37 +130,126 @@ class Filing extends CI_Controller {
         //     //         $this->pxrajal->updatepxrajal($nama,$data);
         //     //     }
             
-
-                
-            
-                
-                
-          
-
-
         // }
 
-         $this->load->model('pxrajal');
-        $get = $this->pxrajal->getcount();
-        $value=0;
-        foreach ($get->result() as $key) {
-            $value = $key->nomor;
-        }
-        for ($i=1; $i = $value ; $i++) {
-            $as  = $this->pxrajal->getidpaslimit(); 
-            $content = $this->pxrajal->getidpas($as);
-            foreach ($content->result() as $key) {
-                if($key->idpasien == ''){
-                        $nama = $key->NAMALENGKAP;
-                        $id = $key->id;
-                        $idpasien = 'PAS'.$id;
-                        $data = array('idpasien' => $idpasien);
-                        $this->pxrajal->updatepxrajal($nama,$data);
-                }
-            }
+        //  $this->load->model('pxrajal');
+        // $get = $this->pxrajal->getcount();
+        // $value=0;
+        // foreach ($get->result() as $key) {
+        //     $value = $key->nomor;
+        // }
+        // for ($i=1; $i = $value ; $i++) {
+        //     $as  = $this->pxrajal->getidpaslimit(); 
+        //     $content = $this->pxrajal->getidpas($as);
+        //     foreach ($content->result() as $key) {
+        //         if($key->idpasien == ''){
+        //                 $nama = $key->NAMALENGKAP;
+        //                 $id = $key->id;
+        //                 $idpasien = 'PAS'.$id;
+        //                 $data = array('idpasien' => $idpasien);
+        //                 $this->pxrajal->updatepxrajal($nama,$data);
+        //         }
+        //     }
             
+        // }
+
+//---------------------------------umur--------------------------------------------------------------------------------
+        $count = $this->pxrajal->getcountpxumur(32);
+        $pointer = 0;
+
+        for ($i=0; $i < $count ; $i++) { 
+           if($pointer == 9198909 ){
+                break;
+            }
+           $get = $this->pxrajal->getpxbypoli(32);
+            foreach ($get->result() as $key) {
+                if($key->idpasien == null){
+                    break;
+                    $pointer = 9198909;
+                }
+                $poli= $key->idpoli;
+                if ($poli == 1){//tumbuh kembang
+                    // $umur = rand(1,21)
+                }else if($poli == 2){//syaraf
+
+                }else if($poli == 3){//anak
+                    
+                }else if($poli == 4){//bayi
+                    // $idpasien = $key->idpasien;
+                    // $umur = rand(0,5);
+                    // $this->pxrajal->updatepxumur($idpasien,$umur);
+                }else if($poli == 5){//bedah
+
+                }else if($poli == 6){//bedah plastik
+
+                }else if($poli == 7){//bedah syaraf
+
+                }else if($poli == 8){//broschocopy
+
+                }else if($poli == 9){//dalam
+
+                }else if($poli == 10){// darul hafidz
+
+                }else if($poli == 11){//diabetes
+
+                }else if($poli == 12){//EEG
+
+                }else if($poli == 13){// endoscopy
+
+                }else if($poli == 14){//gigimulut
+
+                }else if($poli == 15){///gizi
+
+                }else if($poli == 16){//hamil
+
+                }else if($poli == 17){//hematologi
+
+                }else if($poli == 18){//imunisasi
+
+                }else if($poli == 19){//jantung
+
+                }else if($poli == 20){//jiwa
+
+                }else if($poli == 21){//kandungan
+
+                }else if($poli == 22){//kosmetik
+
+                }else if($poli == 23){//kulit dan kelamin
+
+                }else if($poli == 24){//mata
+
+                }else if($poli == 25){//medical cekup
+
+                }else if($poli == 26){//ortopedi
+
+                }else if($poli == 27){//paliatif
+
+                }else if($poli == 28){//paru
+
+                }else if($poli == 29){//pegawai
+
+                }else if ($poli == 30){//psykologi
+
+                }else if ($poli == 31){//rehabilitasi medik
+
+                }else if ($poli == 32){//respirologianak
+                    $idpasien = $key->idpasien;
+                    $umur = rand(5,14);
+                    $this->pxrajal->updatepxumur($idpasien,$umur);
+                }else if ($poli == 33){//tht
+
+                }else if ($poli == 34){//urologi
+
+                }else if($poli == 35){//bedah minor
+
+                }else {
+                    echo "id = ". $idpasien;
+                }
+
+            }
         }
 
+        
 
 
     }

@@ -17,8 +17,8 @@ class Filingjadwal extends CI_Controller {
     public function index()
     {
     	//12 LAST DATE
-    	$get  = $this->createDateRangeArray('2015-01-07','2015-12-31');
-    	$idjadwal = 18253;
+    	$get  = $this->createDateRangeArray('2015-12-21','2015-12-31');
+    	$idjadwal = 27490;
     	for($i=0 ; $i<count($get); $i++) {
     		$variable = $this->jadwalmodel->renamepxrajal($get[$i]);
     		foreach ($variable->result() as $key) {
