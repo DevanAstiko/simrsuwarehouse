@@ -19,7 +19,6 @@
                                                 <th>ID</th>
                                                 <th>Username</th>
                                                 <th>Registered Date</th>
-                                                <th>Last Login</th>
                                                 <th>Role</th>
                                                 <th></th>
                                             </tr>
@@ -30,7 +29,6 @@
                                                 <th>ID</th>
                                                 <th>Username</th>
                                                 <th>Registered Date</th>
-                                                <th>Last Login</th>
                                                 <th>Role</th>
                                                 <th></th>
                                             </tr>
@@ -46,7 +44,6 @@
                                                             <td>'. $row->id .'</td>
                                                             <td>'. $row->username .'</td>
                                                             <td>'. $row->created_at .'</td>
-                                                            <td>'. $row->last_login .'</td>
                                                             <td>';
 
                                                      $var = $row->previllages_id    ;
@@ -58,14 +55,34 @@
                                                          </tr>';
                                                     }
                                                     
-                                                    elseif($row->previllages_id ==2){
+                                                    elseif($var ==3){
                                                         echo 'Admin Rawat Jalan</td>
                                                             <td><button class="btn btn-danger btn-xs pull-right" onClick="deleteUser(\''. $row->id . '\')">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button></td>
                                                          </tr>';
                                                     }
-                                                    
+                                                    elseif($var ==2){
+                                                        echo 'Admin SIM RSU</td>
+                                                            <td><button class="btn btn-danger btn-xs pull-right" onClick="deleteUser(\''. $row->id . '\')">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button></td>
+                                                         </tr>';
+                                                    }
+                                                    elseif($var ==4){
+                                                        echo 'Kepala Rawat Jalan</td>
+                                                            <td><button class="btn btn-danger btn-xs pull-right" onClick="deleteUser(\''. $row->id . '\')">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button></td>
+                                                         </tr>';
+                                                    }
+                                                    elseif($var ==5){
+                                                        echo 'Evaluasi dan Pelaporan</td>
+                                                            <td><button class="btn btn-danger btn-xs pull-right" onClick="deleteUser(\''. $row->id . '\')">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button></td>
+                                                         </tr>';
+                                                    }
                                                             
                                                     }
                                                     
@@ -115,7 +132,25 @@
                                           <div class="radio3 radio-check radio-inline">
                                             <input type="radio" id="role2" name="role" value="2">
                                             <label for="role2">
-                                              Blog Admin
+                                             Admin SIM RSU
+                                            </label>
+                                          </div>
+                                          <div class="radio3 radio-check radio-inline">
+                                            <input type="radio" id="role3" name="role" value="3">
+                                            <label for="role3">
+                                             Admin Rawat Jalan
+                                            </label>
+                                          </div>
+                                          <div class="radio3 radio-check radio-inline">
+                                            <input type="radio" id="role4" name="role" value="4">
+                                            <label for="role4">
+                                             Kepala Rawat Jalan
+                                            </label>
+                                          </div>
+                                          <div class="radio3 radio-check radio-inline">
+                                            <input type="radio" id="role5" name="role" value="5">
+                                            <label for="role5">
+                                              Evaluasi dan Pelaporan
                                             </label>
                                           </div>
                                          

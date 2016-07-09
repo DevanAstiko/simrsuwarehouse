@@ -10,9 +10,13 @@ class Etlprocessing extends CI_Controller {
         ini_set('max_execution_time', 0); 
 		ini_set('memory_limit','2048M');
          $this->load->library('session');
-        if(!$this->session->userdata('finadmin') == 'yesiam'){
+        if((!$this->session->userdata('finadmin') == 'yesiam')){
             redirect(base_url().'login');
         }
+        if(($this->session->userdata('coderole')!=1)&&($this->session->userdata('coderole')!=2)){
+
+            redirect(base_url().'home');
+          }
     }
 
 

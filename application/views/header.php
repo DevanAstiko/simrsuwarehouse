@@ -130,7 +130,7 @@
                                     <span class="icon fa fa-gears"></span><span class="title">ETL Processing</span>
                                 </a>
                             </li>
-                            <li class="panel panel-default dropdown <?php if ($title == "Article") echo 'active'; ?>">
+                            <li class="panel panel-default dropdown <?php if ($title == "Rawat Jalan") echo 'active'; ?>">
                                 <a data-toggle="collapse" href="#dropdown-element">
                                     <span class="icon fa fa-stethoscope"></span><span class="title">Rawat Jalan</span>
                                 </a>
@@ -140,7 +140,7 @@
                                         <ul class="nav navbar-nav">
                                             <li><a href="<?php echo base_url(); ?>">Directory Report</a>
                                             </li>
-                                            <li><a href="<?php echo base_url(); ?>">Create Report</a>
+                                            <li><a href="<?php echo base_url(); ?>createreport">Create Report</a>
                                             </li>
                                             
                                         </ul>

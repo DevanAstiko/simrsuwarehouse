@@ -47,12 +47,17 @@ class Login extends CI_Controller {
                              $this->session->set_userdata('role', 'General Admin');
                         }
                         elseif($row->previllages_id ==2){
-                            $this->session->set_userdata('role', 'Blog Admin');
+                            $this->session->set_userdata('role', 'Admin SIM RSU');
                         }
                         elseif($row->previllages_id ==3){
-                            $this->session->set_userdata('role', 'Aproval Action Admin');
+                            $this->session->set_userdata('role', 'Admin Rawat Jalan');
                         }
-
+                        elseif($row->previllages_id ==4){
+                            $this->session->set_userdata('role', 'Kepala Rawat Jalan');
+                        }
+                        elseif($row->previllages_id ==5){
+                            $this->session->set_userdata('role', 'Evaluasi dan Pelaporan');
+                        }
 
                        
                         $this->session->set_userdata('coderole', $row->previllages_id);
