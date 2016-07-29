@@ -9,13 +9,18 @@ class Home extends CI_Controller {
         if((!$this->session->userdata('finadmin') == 'yesiam')){
             redirect(base_url().'login');
         }
+        $this->load->model('etlmodel');
     }
 
 	public function index()
-	{
+	{  
         $header['title'] = 'Home';
-		$this->load->view('header', $header);
-        $this->load->view('home/index');
+    	$a = $this->etlmodel->gethistorydesc();
+        $b = $this->etlmodel->gethistory();
+        $content ['content'] = $a;
+        $content ['tabel'] = $b;
+        $this->load->view('header', $header);
+        $this->load->view('home/index', $content);
         $this->load->view('footer');
 	}
     public function doLogout(){

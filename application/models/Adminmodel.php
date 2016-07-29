@@ -43,7 +43,7 @@ class Adminmodel extends CI_Model {
 
     public function updateadminnameadmin($id, $admin){
         $data['adminname_admin'] = $admin;
-        $this->db-where('id_admin', $id);
+        $this->db->where('id_admin', $id);
         return $this->db->update('admin', $data);
     }
 //fungsi untuk change password

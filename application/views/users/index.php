@@ -101,7 +101,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Add User</h4>
+                                    <h4 class="modal-title" id="myModalLabel">Add New Admin</h4>
                                 </div>
                                 <form id="addUserForm">
                                 <div class="modal-body">
@@ -123,12 +123,7 @@
                                     <div class="form-group">
                                         <div>
                                         <label>Role*</label><br>
-                                          <div class="radio3 radio-check radio-inline">
-                                            <input type="radio" id="role1" name="role" value="1" checked="">
-                                            <label for="role1">
-                                              General Admin
-                                            </label>
-                                          </div>
+                                          
                                           <div class="radio3 radio-check radio-inline">
                                             <input type="radio" id="role2" name="role" value="2">
                                             <label for="role2">

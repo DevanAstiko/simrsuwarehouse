@@ -1,63 +1,74 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title><?php echo $title ?> SIM RSU || DATAWAREHOUSE</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 
-<head>
-    <title><?php echo $title ?> SIM RSU || DATAWAREHOUSE</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+        <!-- CSS Libs -->
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/bootstrap-switch.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/checkbox3.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/dataTables.bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/editor.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/select2.min.css">
 
-    <!-- CSS Libs -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/bootstrap-switch.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/checkbox3.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/jquery.datatables.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/datatables.bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/dist/lib/css/editor.css">
+        <!-- CSS App -->
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/themes/flat-blue.css">
 
-    <!-- CSS App -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/themes/flat-blue.css">
+        <!-- JS -->
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/Chart.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/bootstrap-switch.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/jquery.matchHeight-min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/editor.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#txtEditor").Editor({"insert_img":false, "fonts":false});
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $("#txtEditor2").Editor({"insert_img":false, "fonts":false});
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $("#txtEditor3").Editor({"insert_img":false, "fonts":false, "enabled":false});
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $("#txtEditor4").Editor({"insert_img":false, "fonts":false});
+            });
+        </script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/jquery.inputmask.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/jquery.inputmask.date.extensions.js"></script>
+        <script>
+            $(function () {
+                $("[data-mask]").inputmask();
+            });
+        </script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/ace/ace.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/ace/mode-html.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/ace/theme-github.js"></script>
 
-    <!-- JS -->
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/chart.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/bootstrap-switch.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/jquery.matchheight-min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/jquery.datatables.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/datatables.bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/select2.full.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/editor.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#txtEditor").Editor({"insert_img":false, "fonts":false});
-        });
-    </script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/jquery.inputmask.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/jquery.inputmask.date.extensions.js"></script>
-    <script>
-        $(function () {
-            $("[data-mask]").inputmask();
-        });
-    </script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/ace/ace.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/ace/mode-html.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/dist/lib/js/ace/theme-github.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/js/etl.js"></script>
+       
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/js/admin.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/js/app.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/js/index.js"></script>
 
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/js/news.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/js/acf.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/js/loadalumni.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/js/admin.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/js/gallery.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/js/event.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/js/app.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>public/js/index.js"></script>
-
-</head>
+    </head>
 <a id="land" href="<?php echo base_url(); ?>" ></a>
 <body class="flat-blue">
     <div class="app-container">
@@ -125,7 +136,7 @@
                                     <span class="icon fa fa-user"></span><span class="title">Personalization</span>
                                 </a>
                             </li>
-                            <li>
+                            <li <?php if ($title == "ETL")echo'class="active"'; ?>>
                                 <a href="<?php echo base_url(); ?>etlprocessing">
                                     <span class="icon fa fa-gears"></span><span class="title">ETL Processing</span>
                                 </a>
