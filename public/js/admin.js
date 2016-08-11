@@ -29,7 +29,7 @@ $(document).ready(function () {
                 window.location.replace($('#url').attr('href') + 'users');
             }
 
-            alert(data.st);
+           
         });
     });
 

@@ -85,6 +85,7 @@ class Users extends CI_Controller {
     public function changePassword(){
         if ($this->input->is_ajax_request()){
             $this->load->library('form_validation');
+            
 
             $this->form_validation->set_rules('oldpassword', 'Old Password', 'required|min_length[8]');
             $this->form_validation->set_rules('newpassword', 'New Password', 'required|min_length[8]');

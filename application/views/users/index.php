@@ -48,7 +48,7 @@
 
                                                      $var = $row->previllages_id    ;
                                                     if($var == 1){
-                                                        echo 'General Admin</td>
+                                                        echo 'Admin SIM RSU</td>
                                                             <td><button class="btn btn-danger btn-xs pull-right" onClick="deleteUser(\''. $row->id . '\')">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button></td>

@@ -14,8 +14,8 @@ class Adminmodel extends CI_Model {
 
     public function getAdminByID($id){
         $query=$this->db->where('id', $id);
-        $q = $this->db->get('admins');
-        $data = $q->result_array();
+        $data = $this->db->get('admins');
+        // $data = $q->result_array();
         return $data;
     }
 

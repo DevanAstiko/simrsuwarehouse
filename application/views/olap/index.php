@@ -55,9 +55,9 @@
     
      
 </script>                 
- <a href="javascript:demoFromHTML()" class="button">Run Code</a>
+ <!-- <a href="javascript:demoFromHTML()" class="button">Run Code</a> -->
  <button class="btn btn-primary pull-right"  data-toggle="modal" data-target="#modalReport">Save</button>
- <button class="btn btn-primary pull-right" style="margin-right: 10px;" data-toggle="modal" data-target="#">Generate PDF</button> 
+ <button class="btn btn-primary pull-right" style="margin-right: 10px;" onclick="demoFromHTML()">Generate PDF</button> 
 
       
 

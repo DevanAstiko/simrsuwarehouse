@@ -81,67 +81,67 @@ class Etlprocessing extends CI_Controller {
                 }else{
                     $i=0;
                     //proses etl
-                    $alldata = $this->etlmodel->getalldata($start , $end);
+                    $a = $this->etlmodel->gethistorydesc();
+                    $paramyear = $this->etlmodel->getyear();
+                    foreach ($a -> result() as $value){
+
+                    $dateA = $value->etllast;
+                    }
+                    $dateB = $start;
+                    if(strtotime($dateA) >= strtotime($dateB)){
+                         $a = $this->etlmodel->gethistorydesc();
+                    
+                    $content = array('content' => $a,
+                                      'index' => 'sukses'   );
+                    $header['title'] = 'Home';
+                    $this->load->view('header',$header);
+                    $this->load->view('etlprocessing/index',$content);
+                    $this->load->view('footer');
+                    }else{
+                         $alldata = $this->etlmodel->getalldata($start , $end);
                     foreach ($alldata->result() as $key) {
                         //data dokter
                         $dokter = $this->etlmodel->getdwdokter($key->dokter_id);
-                        if($dokter->num_rows() == 1){
-                            $datadokter = array('namadokter' => $key->namadokter );
-                            $iddokter = $key->dokter_id;
-                            $this->etlmodel->updatedwdokter($iddokter,$datadokter);
-                        }else {
+                        if($dokter->num_rows() == 0){
+                            // $datadokter = array('namadokter' => $key->namadokter );
+                            // $iddokter = $key->dokter_id;
+                            // $this->etlmodel->updatedwdokter($iddokter,$datadokter);
                             $datadokter = array('idDimdokter' => $key->dokter_id,
                                                 'namadokter' => $key->namadokter );
                             $this->etlmodel->insertdwdokter($datadokter);
+                        }else {
+                            
 
                         }
+
                         //data asuransi
                         $asuransi = $this->etlmodel->getdwasuransi($key->idasuransi_kesehatan);
-                        if($asuransi->num_rows() == 1){
-                            $dataasuransi = array('namaAsuransi' => $key->nama_asuransi );
-                            $idDimAsuransi = $key->idasuransi_kesehatan;
-                            $this->etlmodel->updatedwasuransi($idDimAsuransi,$dataasuransi);
-                        }else {
+                        if($asuransi->num_rows() == 0){
+                            // $dataasuransi = array('namaAsuransi' => $key->nama_asuransi );
+                            // $idDimAsuransi = $key->idasuransi_kesehatan;
+                            // $this->etlmodel->updatedwasuransi($idDimAsuransi,$dataasuransi);
                             $dataasuransi = array('idDimAsuransi' => $key->idasuransi_kesehatan,
-                                                'namaAsuransi' => $key->nama_asuransi );
+                                                  'namaAsuransi' => $key->nama_asuransi );
                             $this->etlmodel->insertdwasuransi($dataasuransi);
-
-                        }
-                        //data pasien
-                        $pasien = $this->etlmodel->getdwpasien($key->pasien_id);
-                        if($pasien->num_rows() == 1){
-                            $datapasien = array('namaPasien' => $key->nama_pasien,
-                                                'kotatinggal' => $key->nama_kota,
-                                                'provinsitinggal' => $key->nama_province,
-                                                'umur' => $key->tahun_umur,
-                                                'jenisKelamin' => $key->jenis_kelamin);
-                            $idDimPasien = $key->pasien_id;
-                            $this->etlmodel->updatedwpasien($idDimPasien,$datapasien);
                         }else {
-                            $datapasien = array('idDimPasien' => $key->pasien_id,
-                                                'namaPasien' => $key->nama_pasien,
-                                                'kotatinggal' => $key->nama_kota,
-                                                'provinsitinggal' => $key->nama_province,
-                                                'umur' => $key->tahun_umur,
-                                                'jenisKelamin' => $key->jenis_kelamin);
-                            $this->etlmodel->insertdwdwpasien($datapasien);
+                        
 
                         }
+                        
                         //data penyakit
                         $penyakit = $this->etlmodel->getdwpenyakit($key->penyakit_id);
-                        if($penyakit->num_rows() == 1){
+                        if($penyakit->num_rows() == 0){
                             
-                            if($key->penyakit_id == 1){
-                                $datapenyakit = array('kodepenyakit' => 'tidak diisi',
-                                                'namaPenyakit' => 'tidak diisi');
-                            }else{
-                                $datapenyakit = array('kodepenyakit' => $key->kode_penyakit,
-                                                'namaPenyakit' => $key->nama_penyakit);
-                            }
+                            // if($key->penyakit_id == 1){
+                            //     $datapenyakit = array('kodepenyakit' => 'tidak diisi',
+                            //                     'namaPenyakit' => 'tidak diisi');
+                            // }else{
+                            //     $datapenyakit = array('kodepenyakit' => $key->kode_penyakit,
+                            //                     'namaPenyakit' => $key->nama_penyakit);
+                            // }
 
-                            $idDimPenyakit = $key->penyakit_id;
-                            $this->etlmodel->updatedwpenyakit($idDimPenyakit,$datapenyakit);
-                        }else {
+                            // $idDimPenyakit = $key->penyakit_id;
+                            // $this->etlmodel->updatedwpenyakit($idDimPenyakit,$datapenyakit);
                             if($key->penyakit_id == 1){
                                 $datapenyakit = array('idDimPenyakit' => $key->penyakit_id,
                                                 'kodepenyakit' => 'tidak diisi',
@@ -152,32 +152,36 @@ class Etlprocessing extends CI_Controller {
                                                 'namaPenyakit' => $key->nama_penyakit);
                             }
                             $this->etlmodel->insertdwdwpenyakit($datapenyakit);
+                        }else {
+                            
 
                         }
                         //data poli
                         $poli = $this->etlmodel->getdwpoli($key->id);
-                        if($poli->num_rows() == 1){
-                            $datapoli = array('namaPoli' => $key->nama_poli,
-                                                'statusPoli' => $key->ruangan);
-                            $idDimpoli = $key->id;
-                            $this->etlmodel->updatedwpoli($idDimpoli,$datapoli);
-                        }else {
+                        if($poli->num_rows() == 0){
+                            // $datapoli = array('namaPoli' => $key->nama_poli,
+                            //                     'statusPoli' => $key->ruangan);
+                            // $idDimpoli = $key->id;
+                            // $this->etlmodel->updatedwpoli($idDimpoli,$datapoli);
                             $datapoli = array('idDimpoli' => $key->id,
                                                 'namaPoli' => $key->nama_poli,
                                                 'statusPoli' => $key->ruangan);
                             $this->etlmodel->insertdwpoli($datapoli);
+                        }else {
+                            
 
                         }
                         //data rujukan
                         $rujukan = $this->etlmodel->getdwrujukan($key->idrujukan_medis);
-                        if($rujukan->num_rows() == 1){
-                            $datarujukan = array('jenisRujukan' => $key->asal_rujukan );
-                            $idDimRujukan = $key->idrujukan_medis;
-                            $this->etlmodel->updatedwrujukan($idDimRujukan,$datarujukan);
-                        }else {
+                        if($rujukan->num_rows() == 0){
+                            // $datarujukan = array('jenisRujukan' => $key->asal_rujukan );
+                            // $idDimRujukan = $key->idrujukan_medis;
+                            // $this->etlmodel->updatedwrujukan($idDimRujukan,$datarujukan);
                             $datarujukan = array('idDimRujukan' => $key->idrujukan_medis,
                                                 'jenisRujukan' => $key->asal_rujukan );
                             $this->etlmodel->insertdwrujukan($datarujukan);
+                        }else {
+                            
 
                         }
                         //data waktu
@@ -198,6 +202,32 @@ class Etlprocessing extends CI_Controller {
                             $this->etlmodel->insertdwwaktu($datawaktu);
 
                         }
+                        //data pasien
+                        $pasien = $this->etlmodel->getdwpasien($key->pasien_id);
+                        if($pasien->num_rows() == 0){
+                           $datapasien = array('idDimPasien' => $key->pasien_id,
+                                                'namaPasien' => $key->nama_pasien,
+                                                'kotatinggal' => $key->nama_kota,
+                                                'provinsitinggal' => $key->nama_province,
+                                                'umur' => $key->tahun_umur,
+                                                'jenisKelamin' => $key->jenis_kelamin);
+                            $this->etlmodel->insertdwdwpasien($datapasien);
+                            
+                        }else {
+
+                            if($tanggal[0]>$paramyear){
+                                 $datapasien = array('namaPasien' => $key->nama_pasien,
+                                                    'kotatinggal' => $key->nama_kota,
+                                                    'provinsitinggal' => $key->nama_province,
+                                                    'umur' => $key->tahun_umur,
+                                                    'jenisKelamin' => $key->jenis_kelamin);
+                                $idDimPasien = $key->pasien_id;
+                                $this->etlmodel->updatedwpasien($idDimPasien,$datapasien);
+                            }
+
+                        }                        
+
+
                         //Data Fakta
                         $datafakta  = array('iddiagnosa' => $key->iddiagnosa,
                                             'Totalcost' => $key->cost,
@@ -209,6 +239,11 @@ class Etlprocessing extends CI_Controller {
                                             'DimPoli_idDimpoli' => $key->id,
                                             'Dimdokter_idDimdokter' => $key->dokter_id);
                         $this->etlmodel->insertdwfact($datafakta);
+                        
+
+
+
+
                         $i++;
                     }
                     //proses insert history
@@ -218,8 +253,8 @@ class Etlprocessing extends CI_Controller {
                                             'totalrowinserted' => $i,
                                             'adminname' => $name );
                     $this->etlmodel->inserthistory($datahistory);
-                    // echo json_encode(array('st' => 1, 'msg' => array('status' => 'Sukses Besar')));
-                    // echo "bar kantal";
+                    // // echo json_encode(array('st' => 1, 'msg' => array('status' => 'Sukses Besar')));
+                    // // echo "bar kantal";
                     $a = $this->etlmodel->gethistorydesc();
                     
                     $content = array('content' => $a,
@@ -228,6 +263,8 @@ class Etlprocessing extends CI_Controller {
                     $this->load->view('header',$header);
                     $this->load->view('etlprocessing/index',$content);
                     $this->load->view('footer');
+                    
+                    }
                 }
             }
         // }else{

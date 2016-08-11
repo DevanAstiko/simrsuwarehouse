@@ -132,7 +132,7 @@
                                 </a>
                             </li>
                             <li <?php if ($title == "Personalization")echo'class="active"'; ?>>
-                                <a href="<?php echo base_url(); ?>">
+                                <a href="#">
                                     <span class="icon fa fa-user"></span><span class="title">Personalization</span>
                                 </a>
                             </li>
@@ -149,7 +149,7 @@
                                 <div id="dropdown-element" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="<?php echo base_url(); ?>">Directory Report</a>
+                                            <li><a href="<?php echo base_url(); ?>createreport/directory">Directory Report</a>
                                             </li>
                                             <li><a href="<?php echo base_url(); ?>createreport">Create Report</a>
                                             </li>
