@@ -98,6 +98,8 @@ class Etlprocessing extends CI_Controller {
                     $this->load->view('etlprocessing/index',$content);
                     $this->load->view('footer');
                     }else{
+                         $datenow = date('Y-m-d');
+                         $yearnow = explode("-",$datenow);
                          $alldata = $this->etlmodel->getalldata($start , $end);
                     foreach ($alldata->result() as $key) {
                         //data dokter
@@ -191,6 +193,7 @@ class Etlprocessing extends CI_Controller {
                         $day = date('D', $timestamp);
                         $iddwwaktu = str_replace("-","",$str);
                         $waktu = $this->etlmodel->getdwwaktu($iddwwaktu);
+
                         if($waktu->num_rows() == 1){
                             
                         }else {
@@ -202,14 +205,18 @@ class Etlprocessing extends CI_Controller {
                             $this->etlmodel->insertdwwaktu($datawaktu);
 
                         }
+
                         //data pasien
+                        
+                        $umurselisih = $yearnow[0]-$tanggal[0];
+                        $umursekarang = $key->tahun_umur;
                         $pasien = $this->etlmodel->getdwpasien($key->pasien_id);
                         if($pasien->num_rows() == 0){
                            $datapasien = array('idDimPasien' => $key->pasien_id,
                                                 'namaPasien' => $key->nama_pasien,
                                                 'kotatinggal' => $key->nama_kota,
                                                 'provinsitinggal' => $key->nama_province,
-                                                'umur' => $key->tahun_umur,
+                                                'umur' => $umurselisih+$umursekarang,
                                                 'jenisKelamin' => $key->jenis_kelamin);
                             $this->etlmodel->insertdwdwpasien($datapasien);
                             
@@ -219,7 +226,7 @@ class Etlprocessing extends CI_Controller {
                                  $datapasien = array('namaPasien' => $key->nama_pasien,
                                                     'kotatinggal' => $key->nama_kota,
                                                     'provinsitinggal' => $key->nama_province,
-                                                    'umur' => $key->tahun_umur,
+                                                    'umur' =>  $umurselisih+$umursekarang,
                                                     'jenisKelamin' => $key->jenis_kelamin);
                                 $idDimPasien = $key->pasien_id;
                                 $this->etlmodel->updatedwpasien($idDimPasien,$datapasien);
@@ -231,6 +238,7 @@ class Etlprocessing extends CI_Controller {
                         //Data Fakta
                         $datafakta  = array('iddiagnosa' => $key->iddiagnosa,
                                             'Totalcost' => $key->cost,
+                                            'umurpx_berobat'=>$key->tahun_umur,
                                             'DimWaktu_idDimWaktu' => $iddwwaktu,
                                             'DimPenyakit_idDimPenyakit' => $key->penyakit_id,
                                             'DimRujukan_idDimRujukan' => $key->idrujukan_medis,

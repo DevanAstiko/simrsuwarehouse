@@ -27,39 +27,45 @@ class Createreport extends CI_Controller {
     }
 
     public function getfile() {
-        $start = $this->input->post('startdate');
-        $end = $this->input->post('enddate');
-        $mulai = str_replace("-", "", $start);
-        $akhir = str_replace("-", "", $end);
+       $start = $this->input->post('startdate');
+       $end = $this->input->post('enddate');
+       $mulai = str_replace("-", "", $start);
+       $akhir = str_replace("-", "", $end);
+       $name = 'pxrajal' . $mulai.$akhir;
+       if(file_exists(FCPATH.'public/filejson/' . $name . '.json')){
+            $this->session->set_flashdata('namafile', $name . '.json');
+            $this->custom();
+       }else{
+            $hasil = $this->reportmodel->getdwreport($mulai, $akhir);
+            foreach ($hasil->result() as $key) {
+                $posts[] = array(
+                    "iddiagnosa" => $key->iddiagnosa,
+                    "Totalcost" => $key->Totalcost,
+                    "umurpx_berobat" => $key->umurpx_berobat,
+                    "namaAsuransi" => $key->namaAsuransi,
+                    "namaPenyakit" => $key->namaPenyakit,
+                    "kodepenyakit" => $key->kodepenyakit,
+                    "namadokter" => $key->namadokter,
+                    "namaPoli" => $key->namaPoli,
+                    "statusPoli" => $key->statusPoli,
+                    "jenisRujukan" => $key->jenisRujukan,
+                    "namaPasien" => $key->namaPasien,
+                    "kotatinggal" => $key->kotatinggal,
+                    "provinsitinggal" => $key->provinsitinggal,
+                    "jenisKelamin" => $key->jenisKelamin,
+                    "tanggal" => $key->tanggal,
+                    "bulan" => $key->bulan,
+                    "tahun" => $key->tahun,
+                    "hari" => $key->hari
+                );
+            }
+           
+            $fp = fopen('public/filejson/' . $name . '.json', 'w');
+            fwrite($fp, json_encode($posts));
 
-        $hasil = $this->reportmodel->getdwreport($mulai, $akhir);
-        foreach ($hasil->result() as $key) {
-            $posts[] = array(
-                "iddiagnosa" => $key->iddiagnosa,
-                "Totalcost" => $key->Totalcost,
-                "namaAsuransi" => $key->namaAsuransi,
-                "namaPenyakit" => $key->namaPenyakit,
-                "kodepenyakit" => $key->kodepenyakit,
-                "namadokter" => $key->namadokter,
-                "namaPoli" => $key->namaPoli,
-                "statusPoli" => $key->statusPoli,
-                "jenisRujukan" => $key->jenisRujukan,
-                "namaPasien" => $key->namaPasien,
-                "kotatinggal" => $key->kotatinggal,
-                "provinsitinggal" => $key->provinsitinggal,
-                "jenisKelamin" => $key->jenisKelamin,
-                "tanggal" => $key->tanggal,
-                "bulan" => $key->bulan,
-                "tahun" => $key->tahun,
-                "hari" => $key->hari
-            );
-        }
-        $name = 'pxrajal' . date('YmdHis');
-        $fp = fopen('public/filejson/' . $name . '.json', 'w');
-        fwrite($fp, json_encode($posts));
-
-        $this->session->set_flashdata('namafile', $name . '.json');
-        $this->custom();
+            $this->session->set_flashdata('namafile', $name . '.json');
+            $this->custom();
+       }
     }
 
     public function save() {

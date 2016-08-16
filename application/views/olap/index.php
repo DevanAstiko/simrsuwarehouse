@@ -31,7 +31,6 @@
                                                         //     return mp["JenisKelamin"] == "Female" ? "Female" : "Male";
                                                         // }
                                                     },
-                                                     <?php echo 'cols: ["jenisKelamin","namaAsuransi",], rows: ["namaPoli"]';?>,
                                                     rendererName: "Table",
                                                     aggregatorName:"Count",
                                                     // aggregators: {

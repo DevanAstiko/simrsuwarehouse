@@ -174,11 +174,7 @@
                                     <span class="icon fa fa-asterisk"></span><span class="title">Laboratory</span>
                                 </a>
                             </li>
-                             <li>
-                                <a href="#">
-                                    <span class="icon fa fa-smile-o"></span><span class="title">Poli Gigi dan Mulut</span>
-                                </a>
-                            </li>
+                             
                              
                             
                         </ul>
