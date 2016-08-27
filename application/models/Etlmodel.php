@@ -39,6 +39,10 @@ class Etlmodel extends CI_Model {
         return $query;
     }
 
+    public function insertpxrajal($data){
+        return $this->db->insert('PXRAJAL2014', $data);
+    }
+
     public function inserthistory($data){
         $this->load->library('multipledb');
         return $this->multipledb->db->insert('historyetl', $data);

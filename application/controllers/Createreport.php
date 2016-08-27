@@ -36,7 +36,7 @@ class Createreport extends CI_Controller {
             $this->session->set_flashdata('namafile', $name . '.json');
             $this->custom();
        }else{
-            $hasil = $this->reportmodel->getdwreport($mulai, $akhir);
+            $hasil = $this->reportmodel->getdwreporttopten($mulai, $akhir);
             foreach ($hasil->result() as $key) {
                 $posts[] = array(
                     "iddiagnosa" => $key->iddiagnosa,
